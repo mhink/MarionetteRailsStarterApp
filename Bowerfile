@@ -1,0 +1,9 @@
+# A sample Bowerfile
+# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+
+asset 'bootstrap',  '3.1.1'
+asset 'jquery',     '2.1.1'
+asset 'underscore'
+asset 'backbone'
+asset 'marionette'
+asset 'moment'
