@@ -9,5 +9,9 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     %body
-      %h1 Marionette/Rails Sample App
-      #main-region.container= yield
+      #header-region.container
+        .row
+          %h1 Marionette/Rails Sample App
+      #content-region.container
+        .row= yield
+      = yield :js_initialization

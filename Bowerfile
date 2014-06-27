@@ -3,7 +3,9 @@
 
 asset 'bootstrap',  '3.1.1'
 asset 'jquery',     '2.1.1'
+asset 'handlebars'
 asset 'underscore'
 asset 'backbone'
 asset 'marionette'
 asset 'moment'
+asset 'd3'
