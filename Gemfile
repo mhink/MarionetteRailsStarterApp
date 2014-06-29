@@ -18,6 +18,7 @@ gem 'mysql2'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'draper'
+gem 'redcarpet'
 
 group :development do
   gem 'capistrano'

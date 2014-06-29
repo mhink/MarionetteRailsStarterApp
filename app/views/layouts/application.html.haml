@@ -8,10 +8,14 @@
     = favicon_link_tag 'favicon.ico', rel: 'apple-touch-icon', type: 'image/png'
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
-    %body
-      #header-region.container
-        .row
-          %h1 Marionette/Rails Sample App
-      #content-region.container
-        .row= yield
-      = yield :js_initialization
+
+  %body
+    #header-region.jumbotron
+      .container
+        %h1 Marionette/Rails Sample App
+        %p This is a sample app to show how to use Backbone.js and Marionette.js with Rails to make a web application with a rich client experience.
+
+    #content-region.container
+      .row= yield
+    :coffeescript
+      window.App.start()

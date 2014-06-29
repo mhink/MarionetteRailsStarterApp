@@ -20,3 +20,5 @@
 
 # Ignore precompiled assets
 /public/assets
+
+/config/secrets.yml

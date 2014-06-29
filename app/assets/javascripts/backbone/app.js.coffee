@@ -1,24 +1,13 @@
-@MyApp = do (Backbone, Marionette, HandlebarsTemplates) ->
+@App = new Marionette.Application
 
-  if Backbone.history
-    Backbone.history.start()
+App.module 'Models'
+App.module 'Views'
+App.module 'Controllers'
+App.module 'Routers'
 
-  class StaticHandlebarsView extends Marionette.ItemView
-    template: HandlebarsTemplates['test']
-
-  class MyApp extends Marionette.Application
-    regions:
-      content: "#content"
-
-    onStart: (options) ->
-      @addRegions(@regions)
-
-      console.log('MyApp has started!')
-
-      @content.show(new StaticHandlebarsView)
-
-    navigate: (route, options) ->
-      Backbone.history.navigate route, options
-
-  new MyApp
-
+App.addInitializer ->
+  App.addRegions
+    staticHandlebarsRegion: "#content"
+  indexController = new App.Controllers.Index
+  new App.Routers.Index(controller: indexController)
+  Backbone.history.start()

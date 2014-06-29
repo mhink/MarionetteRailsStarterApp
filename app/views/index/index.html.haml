@@ -1,5 +1,9 @@
-- content_for :js_initialization do
-  :coffeescript
-    MyApp.start()
+#before-content.well
+  %p 
+    :markdown
+      The content in the well below is a static hamlbars template being rendered by Marionette into this page's `#content` div.
 
-#content
+      The template itself can be found in `/app/assets/javascripts/templates/static_template.hamlbars`, and its corresponding view in `/app/assets/javascripts/backbone/views.js.coffee`.
+
+-# This div will be populated at page load time.
+#content.well
