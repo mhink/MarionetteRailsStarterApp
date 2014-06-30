@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 gem 'bower-rails'
 gem 'handlebars_assets'
+gem 'bootstrap-sass'
 
 # DATABASE ADAPTERS
 gem 'sqlite3'
