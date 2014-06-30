@@ -19,9 +19,10 @@
 #
 # Backbone/Marionette Application
 # -------------------------------
-#= require backbone/app
-#= require backbone/views
-#= require backbone/controllers
+#= require marionette_app
+#= require views
+#= require controllers
+#= require modules
 #
 # Everything else
 # ---------------

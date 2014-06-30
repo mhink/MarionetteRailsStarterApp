@@ -1,9 +1,16 @@
-#before-content.well
-  %p 
-    :markdown
-      The content in the well below is a static hamlbars template being rendered by Marionette into this page's `#content` div.
+#server-side-static-content
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Static content, rendered server-side
+        .panel-body
+          %p 
+            :markdown
+              This content is being rendered onto the page by the server itself.  
+              
+              You can find it in `/app/views/index/index.html.haml`.
 
-      The template itself can be found in `/app/assets/javascripts/templates/static_template.hamlbars`, and its corresponding view in `/app/assets/javascripts/backbone/views.js.coffee`.
+#client-side-static-content
 
--# This div will be populated at page load time.
-#content.well
+#client-side-dynamic-content

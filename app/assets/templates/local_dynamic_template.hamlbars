@@ -1,0 +1,5 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title {{ panelTitle }}
+  .panel-body
+    %p {{ panelBody }}
