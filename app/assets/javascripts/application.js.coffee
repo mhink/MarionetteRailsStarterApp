@@ -20,6 +20,7 @@
 # Backbone/Marionette Application
 # -------------------------------
 #= require marionette_app
+#= require models
 #= require views
 #= require controllers
 #= require modules

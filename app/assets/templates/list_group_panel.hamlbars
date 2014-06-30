@@ -1,10 +1,13 @@
 .panel-heading
-  %h3.panel-title Marionette.CompositeView
+  %h3.panel-title {{ title }}
 .panel-body
   %p
     :markdown
-      The following text comes from an instance of Backbone.Model which is being displayed by this ListGroupPanelView.
-
       `{{ bodyText }}`
 
-%ul.list-group
+%table.table
+  %thead
+    %tr
+      %th Id
+      %th Name
+  %tbody
