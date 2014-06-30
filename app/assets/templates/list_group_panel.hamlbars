@@ -1,5 +1,5 @@
 .panel-heading
-  %h3.panel-title {{ title }}
+  %h3.panel-title Marionette.CompositeView
 .panel-body
   %p
     :markdown

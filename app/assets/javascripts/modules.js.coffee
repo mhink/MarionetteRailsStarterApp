@@ -3,23 +3,20 @@ class WebStorageModule extends Marionette.Module
 
   initializeModelsAndCollections: ->
     @leftModel = new Backbone.Model
-      title: 'Left dynamic panel'
       bodyText: "This text is defined as an attribute on a Backbone.Model."
 
     @rightModel = new Backbone.Model
-      title: 'Right dynamic panel'
       bodyText: "As is this text!"
 
     @leftCollection = new Backbone.Collection([
-      { text: 'Foo' }
-      { text: 'Bar' }
-      { text: 'Baz' }
+      { text: 'This element lives in a Backbone.Collection' }
+      { text: 'Like this one...' }
+      { text: 'And this one!' }
     ])
 
     @rightCollection = new Backbone.Collection([
-      { text: 'Alice' }
-      { text: 'Bob' }
-      { text: 'Charlie' }
+      { text: 'These elements live in a different collection.' }
+      { text: 'Which is displayed by a different instance of the same ListGroupPanelView!' }
     ])
 
   onStart: (@options) ->
