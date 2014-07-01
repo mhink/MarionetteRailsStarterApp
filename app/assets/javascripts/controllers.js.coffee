@@ -4,7 +4,7 @@ class App.Controllers.Index
 
     App.staticContent.show(@staticView)
 
-    App.WebStorageModule.start(region: App.dynamicContent)
+    App.PersistenceDemoModule.start(region: App.dynamicContent)
 
 class App.Routers.Index extends Backbone.Marionette.AppRouter
   appRoutes:

@@ -10,13 +10,11 @@ class App.Views.TwoColumnLayout extends Marionette.LayoutView
     rightRegion:  '.right-col'
 
 class App.Views.ListGroupItemView extends Marionette.ItemView
-  tagName: 'li'
-  className: 'list-group-item'
+  tagName: 'tr'
   template: HandlebarsTemplates['list_group_item']
 
 class App.Views.ListGroupPanelView extends Marionette.CompositeView
   childView: App.Views.ListGroupItemView
-  childViewContainer: 'ul'
-
+  childViewContainer: 'tbody'
   className: 'panel panel-default'
   template: HandlebarsTemplates['list_group_panel']

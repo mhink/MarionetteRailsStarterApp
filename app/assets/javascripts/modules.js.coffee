@@ -1,23 +1,24 @@
-class WebStorageModule extends Marionette.Module
+class PersistenceDemoModule extends Marionette.Module
   startWithParent: false
 
   initializeModelsAndCollections: ->
-    @leftModel = new Backbone.Model
-      bodyText: "This text is defined as an attribute on a Backbone.Model."
 
-    @rightModel = new Backbone.Model
-      bodyText: "As is this text!"
+    @leftInfo = new Backbone.Model
+      title: "DEMO: Client-side persistence"
+      bodyText: "Items in this list are created in memory on the client side."
 
-    @leftCollection = new Backbone.Collection([
-      { text: 'This element lives in a Backbone.Collection' }
-      { text: 'Like this one...' }
-      { text: 'And this one!' }
-    ])
+    @rightInfo = new Backbone.Model
+      title: "DEMO: Server-side persistence"
+      bodyText: "Items in this list live on the server side!"
 
-    @rightCollection = new Backbone.Collection([
-      { text: 'These elements live in a different collection.' }
-      { text: 'Which is displayed by a different instance of the same ListGroupPanelView!' }
-    ])
+    @leftContacts = new Backbone.Collection([
+        { id: 1, name: 'Alice Foo' }
+        { id: 2, name: 'Bob Bar' }
+        { id: 3, name: 'Carol Baz' }
+      ])
+
+    @rightContacts = new App.Models.Contacts
+    @rightContacts.fetch()
 
   onStart: (@options) ->
     @initializeModelsAndCollections()
@@ -25,12 +26,12 @@ class WebStorageModule extends Marionette.Module
     @twoColumnLayout = new App.Views.TwoColumnLayout
 
     @leftPanelView = new App.Views.ListGroupPanelView
-      model: @leftModel
-      collection: @leftCollection
+      model: @leftInfo
+      collection: @leftContacts
 
     @rightPanelView = new App.Views.ListGroupPanelView
-      model: @rightModel
-      collection: @rightCollection
+      model: @rightInfo
+      collection: @rightContacts
 
     @options.region.show(@twoColumnLayout)
 
@@ -39,4 +40,4 @@ class WebStorageModule extends Marionette.Module
 
     console.log("Web storage module started.")
 
-App.module('WebStorageModule', WebStorageModule)
+App.module('PersistenceDemoModule', PersistenceDemoModule)
