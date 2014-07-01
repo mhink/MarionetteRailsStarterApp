@@ -1,0 +1,15 @@
+.panel-heading
+  %h3.panel-title {{ title }}
+.panel-body
+  %p
+    :markdown
+      `{{ bodyText }}`
+
+%table.table
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th
+        %button.btn-create.pull-right New Contact
+  %tbody

@@ -18,3 +18,23 @@ class App.Views.ListGroupPanelView extends Marionette.CompositeView
   childViewContainer: 'tbody'
   className: 'panel panel-default'
   template: HandlebarsTemplates['list_group_panel']
+
+class App.Views.DynamicListGroupItemView extends App.Views.ListGroupItemView
+  template: HandlebarsTemplates['dynamic_list_group_item']
+
+class App.Views.DynamicListGroupPanelView extends App.Views.ListGroupPanelView
+  childView: App.Views.DynamicListGroupItemView
+
+  template: HandlebarsTemplates['dynamic_list_group_panel']
+
+  ui:
+    createButton: '.btn-create'
+
+  triggers:
+    'click @ui.createButton' : 'createRecord'
+
+  initialize: (options) ->
+    @listenTo(this, 'createRecord', @onCreateRecordClicked)
+
+  onCreateRecordClicked: ->
+    alert('Heard click @ui.createButton!')

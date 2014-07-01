@@ -1,0 +1,4 @@
+%td {{ id }}
+%td {{ name }}
+%td
+  %button.btn-delete.pull-right Delete

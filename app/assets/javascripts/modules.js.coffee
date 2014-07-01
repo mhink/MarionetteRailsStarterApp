@@ -29,7 +29,7 @@ class PersistenceDemoModule extends Marionette.Module
       model: @leftInfo
       collection: @leftContacts
 
-    @rightPanelView = new App.Views.ListGroupPanelView
+    @rightPanelView = new App.Views.DynamicListGroupPanelView
       model: @rightInfo
       collection: @rightContacts
 
@@ -37,7 +37,5 @@ class PersistenceDemoModule extends Marionette.Module
 
     @twoColumnLayout.leftRegion.show(@leftPanelView)
     @twoColumnLayout.rightRegion.show(@rightPanelView)
-
-    console.log("Web storage module started.")
 
 App.module('PersistenceDemoModule', PersistenceDemoModule)
