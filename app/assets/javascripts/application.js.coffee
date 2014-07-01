@@ -20,9 +20,9 @@
 # Backbone/Marionette Application
 # -------------------------------
 #= require marionette_app
-#= require views
 #= require controllers
 #= require modules
+#= require views
 #
 # Everything else
 # ---------------

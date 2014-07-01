@@ -15,5 +15,3 @@ App.addInitializer ->
   indexController = new App.Controllers.Index
   new App.Routers.Index(controller: indexController)
   Backbone.history.start()
-
-  console.log('Marionette application started.')

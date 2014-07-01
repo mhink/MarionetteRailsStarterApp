@@ -1,11 +1,11 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "jquery": "latest",
+    "jquery": "~> 2.0.1",
     "handlebars": "latest",
-    "underscore": "latest",
-    "backbone": "latest",
-    "marionette": "latest",
+    "underscore": "~> 1.6.0",
+    "backbone": "~> 1.1.2",
+    "marionette": "~> 2.0.1",
     "moment": "latest",
     "d3": "latest"
   }

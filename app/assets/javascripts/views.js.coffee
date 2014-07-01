@@ -2,7 +2,7 @@ class App.Views.StaticView extends Marionette.ItemView
   className: 'row'
   template: HandlebarsTemplates['static_content']
 
-class App.Views.TwoColumnLayout extends Marionette.Layout
+class App.Views.TwoColumnLayout extends Marionette.LayoutView
   className: 'row'
   template: HandlebarsTemplates['two_column_layout']
   regions:
@@ -15,8 +15,8 @@ class App.Views.ListGroupItemView extends Marionette.ItemView
   template: HandlebarsTemplates['list_group_item']
 
 class App.Views.ListGroupPanelView extends Marionette.CompositeView
-  itemView: App.Views.ListGroupItemView
-  itemViewContainer: 'ul'
+  childView: App.Views.ListGroupItemView
+  childViewContainer: 'ul'
 
   className: 'panel panel-default'
   template: HandlebarsTemplates['list_group_panel']
