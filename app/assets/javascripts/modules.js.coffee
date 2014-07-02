@@ -11,13 +11,13 @@ class PersistenceDemoModule extends Marionette.Module
       title: "DEMO: Server-side persistence"
       bodyText: "Items in this list live on the server side!"
 
-    @leftContacts = new Backbone.Collection([
-        { id: 1, name: 'Alice Foo' }
-        { id: 2, name: 'Bob Bar' }
-        { id: 3, name: 'Carol Baz' }
-      ])
-
+    @leftContacts  = new App.Models.Contacts
     @rightContacts = new App.Models.Contacts
+
+    @leftContacts.comparator = 'id'
+    @rightContacts.comparator = 'name'
+
+    @leftContacts.fetch()
     @rightContacts.fetch()
 
   onStart: (@options) ->

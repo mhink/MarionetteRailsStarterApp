@@ -11,14 +11,14 @@ class Api::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      render :show, status: :created, location: @contact
+      render json: @contact, status: :created, location: api_contacts_url(@contact)
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @contact.destroy
+    Contact.find(params[:id]).destroy
     head :no_content
   end
 

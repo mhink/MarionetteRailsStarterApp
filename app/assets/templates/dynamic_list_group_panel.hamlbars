@@ -1,15 +1,22 @@
 .panel-heading
-  %h3.panel-title {{ title }}
+  %h3.panel-title 
+    {{ title }}
+    %button.btn-refresh
+      %span.glyphicon.glyphicon-refresh
+  
 .panel-body
   %p
     :markdown
       `{{ bodyText }}`
 
-%table.table
+  %form.form-inline
+
+%table.table.contacts-table
   %thead
     %tr
-      %th Id
-      %th Name
+      %th #
       %th
-        %button.btn-create.pull-right New Contact
+        %input.name.form-control{type: 'text', placeholder: 'Enter a name'}
+      %th
+        %button.btn-create.pull-right Create
   %tbody

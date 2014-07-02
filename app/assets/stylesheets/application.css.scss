@@ -28,6 +28,28 @@
   @extend .btn-sm;
 }
 
-td {
-  vertical-align: middle;
+.btn-refresh {
+  @extend .btn;
+  @extend .btn-default;
+  @extend .btn-sm;
+
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
+
+.btn-save {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-sm;
+}
+
+.list-group-panel {
+  @extend .panel;
+  @extend .panel-default;
+}
+
+.list-group-panel td,
+.list-group-panel th {
+  vertical-align: middle !important;
 }
