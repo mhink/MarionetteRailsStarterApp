@@ -1,0 +1,7 @@
+.panel-heading
+  %h3.panel-title Add a Contact
+
+.panel-body
+  %form.form-inline
+    %input.form-control{type: 'text', placeholder: 'Enter a name'}
+    %button.btn-save Create

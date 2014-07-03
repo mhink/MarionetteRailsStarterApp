@@ -1,12 +1,9 @@
-class App.Views.StaticView extends Marionette.ItemView
-  className: 'row'
-  template: HandlebarsTemplates['static_content']
-
-class App.Views.TwoColumnLayout extends Marionette.LayoutView
-  className: 'row two-column-layout'
-  template: HandlebarsTemplates['two_column_layout']
+class App.Views.ThreeColumnLayout extends Marionette.LayoutView
+  className: 'row three-column-layout'
+  template: HandlebarsTemplates['three_column_layout']
   regions:
     leftRegion:   '.left-col'
+    midRegion:    '.mid-col'
     rightRegion:  '.right-col'
 
 class App.Views.ListGroupItemView extends Marionette.ItemView
@@ -19,44 +16,15 @@ class App.Views.ListGroupPanelView extends Marionette.CompositeView
   className: 'list-group-panel'
   template: HandlebarsTemplates['list_group_panel']
 
-class App.Views.DynamicListGroupItemView extends App.Views.ListGroupItemView
-  template: HandlebarsTemplates['dynamic_list_group_item']
-
   triggers:
-    'click .btn-delete' : 'deleteRecord'
+    'click .btn-refresh' : 'refreshCollection'
 
   initialize: (options) ->
-    @listenTo(this, 'deleteRecord', @onDeleteRecordClicked)
+    @listenTo(this, 'refreshCollection', @refreshCollection)
 
-  onDeleteRecordClicked: ->
-    @model.destroy()
+  refreshCollection: ->
+    @collection.fetch()
 
-class App.Views.DynamicListGroupPanelView extends App.Views.ListGroupPanelView
-  childView: App.Views.DynamicListGroupItemView
-  childViewContainer: '.contacts-table tbody'
-  template: HandlebarsTemplates['dynamic_list_group_panel']
-
-  ui:
-    newContactNameInput:  'input.name'
-    createRecord:         '.btn-create'
-    refreshCollection:    '.btn-refresh'
-
-  triggers:
-    'click @ui.createRecord' : 'createRecord'
-    'click @ui.refreshCollection' : 'refreshCollection'
-
-  initialize: (options) ->
-    @listenTo(this, 'createRecord', @onCreateRecordClicked)
-    @listenTo(this, 'refreshCollection', @onRefreshCollectionClicked)
-
-  onCreateRecordClicked: ->
-    @collection.create({
-      name: @ui.newContactNameInput.val()
-    },
-    {
-      wait: true
-    })
-    @ui.newContactNameInput.val('')
-
-  onRefreshCollectionClicked: ->
-    # @collection.fetch()
+class App.Views.FormPanelView extends Marionette.ItemView
+  className: 'form-panel'
+  template: HandlebarsTemplates['form_panel']

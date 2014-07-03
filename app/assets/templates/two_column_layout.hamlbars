@@ -1,8 +1,0 @@
-.col-md-12
-  %h2 A Simple Marionette Module
-  %p 
-    :markdown
-      This example demonstrates how to use a few different pieces of Marionette functionality together in a cohesive fashion.  Specifically, we're using a `Marionette.Layout`, which divides the area below into two columns, each of which functions as a region into which views may be rendered.  Then, we build two `Marionette.CompositeView`s- these are the panels below.  We provide each of these with their own `Backbone.Model` and `Backbone.Collection`- the actual data we want to display.
-  .row
-    .col-md-6.left-col
-    .col-md-6.right-col

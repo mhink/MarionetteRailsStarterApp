@@ -1,9 +1,8 @@
 .panel-heading
-  %h3.panel-title {{ title }}
-.panel-body
-  %p
-    :markdown
-      `{{ bodyText }}`
+  %h3.panel-title 
+    {{ title }}
+    %button.btn-refresh
+      %span.glyphicon.glyphicon-refresh
 
 %table.table
   %thead

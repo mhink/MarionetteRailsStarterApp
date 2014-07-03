@@ -3,22 +3,20 @@ class PersistenceDemoModule extends Marionette.Module
 
   initializeModelsAndCollections: ->
 
-    @leftInfo = new Backbone.Model
-      title: "DEMO: Client-side persistence"
-      bodyText: "Items in this list are created in memory on the client side."
+    @idSortedContactsInfo = new Backbone.Model
+      title: "Contacts: sorted by id"
 
-    @rightInfo = new Backbone.Model
-      title: "DEMO: Server-side persistence"
-      bodyText: "Items in this list live on the server side!"
+    @nameSortedContactsInfo = new Backbone.Model
+      title: "Contacts: sorted by name"
 
-    @leftContacts  = new App.Models.Contacts
-    @rightContacts = new App.Models.Contacts
+    @idSortedContacts = new App.Models.Contacts
+      comparator: 'id'
 
-    @leftContacts.comparator = 'id'
-    @rightContacts.comparator = 'name'
+    @nameSortedContacts = new App.Models.Contacts
+      comparator: 'name'
 
-    @leftContacts.fetch()
-    @rightContacts.fetch()
+    @idSortedContacts.fetch()
+    @nameSortedContacts.fetch()
 
   initialize: (name, app, options) ->
     @app = app
@@ -26,22 +24,23 @@ class PersistenceDemoModule extends Marionette.Module
   onStart: (@options) ->
     @initializeModelsAndCollections()
 
-    @twoColumnLayout = new App.Views.TwoColumnLayout
+    @threeColumnLayout = new App.Views.ThreeColumnLayout
 
-    @leftPanelView = new App.Views.ListGroupPanelView
-      model: @leftInfo
-      collection: @leftContacts
+    @idSortedContactView = new App.Views.ListGroupPanelView
+      model: @idSortedContactsInfo
+      collection: @idSortedContacts
 
-    @rightPanelView = new App.Views.DynamicListGroupPanelView
-      model: @rightInfo
-      collection: @rightContacts
+    @nameSortedContactView = new App.Views.ListGroupPanelView
+      model: @nameSortedContactsInfo
+      collection: @nameSortedContacts
 
-    @options.region.show(@twoColumnLayout)
+    @contactFormView = new App.Views.FormPanelView
 
-    @twoColumnLayout.leftRegion.show(@leftPanelView)
-    @twoColumnLayout.rightRegion.show(@rightPanelView)
+    @options.region.show(@threeColumnLayout)
 
-    @listenTo @rightPanelView, 'refreshCollection', @notifyWebsocket
+    @threeColumnLayout.leftRegion.show(@contactFormView)
+    @threeColumnLayout.midRegion.show(@idSortedContactView)
+    @threeColumnLayout.rightRegion.show(@nameSortedContactView)
 
   notifyWebsocket: (view, model, collection) ->
     console.log('Sending a SYN to Rails...')

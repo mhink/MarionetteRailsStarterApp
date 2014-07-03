@@ -44,7 +44,8 @@
   @extend .btn-sm;
 }
 
-.list-group-panel {
+.list-group-panel,
+.form-panel {
   @extend .panel;
   @extend .panel-default;
 }
