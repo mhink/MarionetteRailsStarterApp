@@ -7,7 +7,6 @@ class MarionetteRailsDemoApp extends Marionette.Application
         'X-CSRF-Token': @csrfToken
 
     @addRegions
-      staticContent: "#client-side-static-content"
       dynamicContent: "#client-side-dynamic-content"
 
     @websocket = new WebSocketRails('localhost:3000/websocket')
