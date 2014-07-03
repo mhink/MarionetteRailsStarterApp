@@ -57,8 +57,6 @@ class App.Views.DynamicListGroupPanelView extends App.Views.ListGroupPanelView
       wait: true
     })
     @ui.newContactNameInput.val('')
-    
 
   onRefreshCollectionClicked: ->
-    console.log('Heard click .btn-refresh')
-    @collection.fetch()
+    # @collection.fetch()

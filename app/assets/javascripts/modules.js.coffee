@@ -20,6 +20,9 @@ class PersistenceDemoModule extends Marionette.Module
     @leftContacts.fetch()
     @rightContacts.fetch()
 
+  initialize: (name, app, options) ->
+    @app = app
+
   onStart: (@options) ->
     @initializeModelsAndCollections()
 
@@ -37,5 +40,11 @@ class PersistenceDemoModule extends Marionette.Module
 
     @twoColumnLayout.leftRegion.show(@leftPanelView)
     @twoColumnLayout.rightRegion.show(@rightPanelView)
+
+    @listenTo @rightPanelView, 'refreshCollection', @notifyWebsocket
+
+  notifyWebsocket: (view, model, collection) ->
+    console.log('Sending a SYN to Rails...')
+    @app.websocket.trigger('contacts.syn', {message: 'Hello from the client!'})
 
 App.module('PersistenceDemoModule', PersistenceDemoModule)

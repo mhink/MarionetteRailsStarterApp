@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'draper'
 gem 'redcarpet'
+gem 'websocket-rails'
 
 group :development do
   gem 'capistrano'

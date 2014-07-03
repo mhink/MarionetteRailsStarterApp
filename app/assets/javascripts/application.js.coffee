@@ -2,6 +2,7 @@
 #
 # JAVASCRIPT MANIFEST
 # ===================
+#= require websocket_rails/main
 #
 # Bower dependencies
 # ------------------
