@@ -3,5 +3,5 @@
 
 .panel-body
   %form.form-inline
-    %input.form-control{type: 'text', placeholder: 'Enter a name'}
+    %input.name.form-control{type: 'text', placeholder: 'Enter a name'}
     %button.btn-save Create

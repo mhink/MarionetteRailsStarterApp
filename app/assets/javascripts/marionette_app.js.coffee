@@ -9,12 +9,6 @@ class MarionetteRailsDemoApp extends Marionette.Application
     @addRegions
       dynamicContent: "#client-side-dynamic-content"
 
-    @websocket = new WebSocketRails('localhost:3000/websocket')
-
-    @websocket.bind 'ack', (data) ->
-      console.log('Heard contact.ack over websocket!')
-      console.log(data)
-
     new App.Routers.Index(controller: new App.Controllers.Index)
     Backbone.history.start()
 

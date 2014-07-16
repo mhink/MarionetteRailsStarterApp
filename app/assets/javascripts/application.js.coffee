@@ -11,6 +11,8 @@
 #= require bootstrap
 #= require underscore
 #= require backbone
+#= require backbone.babysitter
+#= require backbone.wreqr
 #= require handlebars.runtime
 #= require marionette
 #

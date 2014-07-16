@@ -26,24 +26,22 @@ class PersistenceDemoModule extends Marionette.Module
 
     @threeColumnLayout = new App.Views.ThreeColumnLayout
 
+    @contactFormView = new App.Views.FormPanelView
+
     @idSortedContactView = new App.Views.ListGroupPanelView
       model: @idSortedContactsInfo
       collection: @idSortedContacts
+      formView: @contactFormView
 
     @nameSortedContactView = new App.Views.ListGroupPanelView
       model: @nameSortedContactsInfo
       collection: @nameSortedContacts
-
-    @contactFormView = new App.Views.FormPanelView
+      formView: @contactFormView
 
     @options.region.show(@threeColumnLayout)
 
     @threeColumnLayout.leftRegion.show(@contactFormView)
     @threeColumnLayout.midRegion.show(@idSortedContactView)
     @threeColumnLayout.rightRegion.show(@nameSortedContactView)
-
-  notifyWebsocket: (view, model, collection) ->
-    console.log('Sending a SYN to Rails...')
-    @app.websocket.trigger('contacts.syn', {message: 'Hello from the client!'})
 
 App.module('PersistenceDemoModule', PersistenceDemoModule)

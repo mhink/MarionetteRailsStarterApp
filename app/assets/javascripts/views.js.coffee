@@ -21,6 +21,7 @@ class App.Views.ListGroupPanelView extends Marionette.CompositeView
 
   initialize: (options) ->
     @listenTo(this, 'refreshCollection', @refreshCollection)
+    @listenTo(options.formView, 'contactCreated', @refreshCollection)
 
   refreshCollection: ->
     @collection.fetch()
@@ -28,3 +29,17 @@ class App.Views.ListGroupPanelView extends Marionette.CompositeView
 class App.Views.FormPanelView extends Marionette.ItemView
   className: 'form-panel'
   template: HandlebarsTemplates['form_panel']
+
+  ui:
+    nameInput:  'input.name'
+    saveButton: '.btn-save'
+
+  triggers:
+    'click @ui.saveButton' : 'createContact'
+
+  initialize: (options) ->
+    @listenTo(this, 'createContact', @createContact)
+
+  createContact: ->
+    contact = new App.Models.Contact(name: @ui.nameInput.val())
+    contact.save {}, success: => @trigger('contactCreated')
